@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
+
 class MainActivity : ComponentActivity() {
     private val viewModel: ReminderViewModel by viewModels()
 
