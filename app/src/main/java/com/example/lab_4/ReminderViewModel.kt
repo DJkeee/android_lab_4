@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import android.os.Build
 
+
 class ReminderViewModel(application: Application) : AndroidViewModel(application) {
     private val alarmHelper = AlarmHelper(application)
     private val notificationHelper = NotificationHelper(application)
@@ -28,18 +29,18 @@ class ReminderViewModel(application: Application) : AndroidViewModel(application
         val delayMinutes = _minutes.value.trim().toIntOrNull()
 
         if (delayMinutes == null || reminderText.isBlank()) {
-            _status.value = "❌ Заполните поля корректно"
+            _status.value = "Заполните поля корректно"
             return
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmHelper.canScheduleExactAlarms()) {
-            _status.value = "⚠️ Требуется разрешение на будильник"
+            _status.value = "Требуется разрешение на будильник"
             alarmHelper.openAlarmSettings()
             return
         }
 
         alarmHelper.scheduleReminder(reminderText, delayMinutes)
-        _status.value = "✅ Напоминание через $delayMinutes мин"
+        _status.value = "Напоминание через $delayMinutes мин"
     }
 
     fun cancelReminder() {
