@@ -22,7 +22,7 @@ class ReminderWorker(
     private val NOTIFICATION_ID = 1
 
     override fun doWork(): Result {
-        val text = inputData.getString("ТЕКСТ") ?: "Напоминание"
+        val text = inputData.getString("TEXT") ?: "Напоминание"
         showNotification(text)
         return Result.success()
     }
