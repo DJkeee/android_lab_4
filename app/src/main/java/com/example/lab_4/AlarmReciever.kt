@@ -6,6 +6,7 @@ import android.content.Intent
 
 import android.util.Log
 
+
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         Log.d("AlarmReceiver", "Сигнал получен")
